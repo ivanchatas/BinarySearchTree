@@ -7,6 +7,33 @@ class Node:
 		self.left = None
 		self.right = None
 
+# A utility function to print
+# the tree with the parent node from the BST preOrder
+def printBST_preOrder(node):
+	print(f'({node.key})',end='')
+	if node.left != None:
+		printBST_preOrder(node.left)
+	if node.right != None:
+		printBST_preOrder(node.right)
+
+# A utility function to print
+# the tree with the parent node from the BST postOrder
+def printBST_postOrder(node):
+	if node.left != None:
+		printBST_postOrder(node.left)
+	if node.right != None:
+		printBST_postOrder(node.right)
+	print(f'({node.key})',end='')
+
+# A utility function to print
+# the tree with the parent node from the BST inOrder
+def printBST_inOrder(node):
+	if node.left != None:
+		printBST_inOrder(node.left)
+	print(f'({node.key})',end='')
+	if node.right != None:
+		printBST_inOrder(node.right)
+
 # A utility function to insert
 # a new node with the given key in BST
 def insert(node, key):

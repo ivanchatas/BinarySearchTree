@@ -27,3 +27,7 @@ if __name__ == '__main__':
 		print(key, "not found")
 	else:
 		print(key, "found")
+
+	node.printBST_preOrder(root)
+	node.printBST_postOrder(root)
+	node.printBST_inOrder(root)
