@@ -65,40 +65,37 @@ def search(root, key):
     if root.key < key:
         return search(root.right, key)
 
-    # Key is smaller than root's key
+	# Key is smaller than root's key
     return search(root.left, key)
 
-
 def delete_node(root, key):
-    # If root doesn't exist, just return it
+    # if root doesn't exist, just return it
     if not root:
         return root
-
-    # Find the node in the left subtree if key value is less than root value
+    # Find the node in the left subtree	if key value is less than root value
     if root.key > key:
         root.left = delete_node(root.left, key)
-    # Find the node in the right subtree if key value is greater than root value
+    # Find the node in right subtree if key value is greater than root value,
     elif root.key < key:
-        root.right = delete_node(root.right, key)
-    # Delete the node if root.keyue == key
+	    root.right = delete_node(root.right, key)
+	# Delete the node if root.keyue == key
     else:
         # If there is no right children delete the node and new root would be root.left
         if not root.right:
             return root.left
-        # If there is no right children delete the node and new root would be root.left
+        # If there is no left children delete the node and new root would be root.right
         if not root.left:
             return root.right
-
+  
         # If both left and right children exist in the node replace its value with
-        # the minimum value in the right subtree. Now delete that minimum node in
-        # the right subtree
+        # the minmimum value in the right subtree. Now delete that minimum node
+        # in the right subtree
         temp_val = root.right
         mini_val = temp_val.key
         while temp_val.left:
             temp_val = temp_val.left
             mini_val = temp_val.key
-
+        
         # Delete the minimum node in right subtree
         root.right = delete_node(root.right, root.key)
-
     return root
